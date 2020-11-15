@@ -16,7 +16,16 @@ function onSubmit (e) {
         msg.innerHTML = 'Please enter all fields';
 
         setTimeout(() => msg.remove(), 3000);
-    } else {
+    }
+    
+    else if(emailInput.value.length <= 6) {
+        msg.classList.add('error');
+        msg.innerHTML = 'invalid email'
+
+        setTimeout(() => msg.remove(), 3000);
+    }
+    
+    else {
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
 
@@ -26,6 +35,7 @@ function onSubmit (e) {
         nameInput.value = '';
         emailInput.value = '';
     }
+    
 }
 
 
@@ -37,4 +47,6 @@ const errorMessage = document.querySelector('.msg');
 errorMessage.style.color = 'black';
 myForm.style.background = '#ccc'
 header.style.background = '#ccc'
+
+
 
